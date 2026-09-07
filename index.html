@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAVRIDA.IT — IT-аутсорсинг и аутстаффинг в Крыму и по всей России</title>
+<meta name="description" content="Подбор и аутстаффинг IT-специалистов, обучение кадров и разработка веб- и мобильных продуктов под ключ. Крым и вся Россия.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header" data-site-header>
+  <div class="container">
+    <a href="index.html" class="logo">TAVRIDA<span>.IT</span></a>
+
+    <nav id="site-nav" data-nav-menu class="nav-menu">
+      <a href="#services">Услуги</a>
+      <a href="#process">Как мы работаем</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#testimonials">Отзывы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#request-form" class="btn btn-primary">Оставить заявку</a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <p class="hero-badge">IT-аутсорсинг и аутстаффинг · Крым и вся Россия</p>
+        <h1>Готовые команды разработчиков <span class="accent-text">и специалисты</span> под ваш проект — без найма в штат</h1>
+        <p class="lead">
+          Подбираем и обучаем IT-специалистов, предоставляем их вашей команде,
+          а также берём разработку продукта под ключ — от идеи до релиза.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#request-form" class="btn btn-primary">Рассчитать стоимость →</a>
+          <a href="https://t.me/" target="_blank" rel="noopener" class="btn btn-outline">Написать в Telegram</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">60+</div>
+            <div class="stat-label">специалистов трудоустроено</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">30+</div>
+            <div class="stat-label">реализованных проектов</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">MSK+0</div>
+            <div class="stat-label">работаем в вашем часовом поясе</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-blob"></div>
+
+        <div class="hero-code-card">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <pre class="code-block"><code><span class="tok-kw">function</span> <span class="tok-fn">assignTeam</span>(project) {
+  <span class="tok-kw">const</span> team = pool.match(
+    project.stack)
+  <span class="tok-kw">return</span> team.readyIn(<span class="tok-fn">'5 days'</span>)
+}</code></pre>
+        </div>
+
+        <div class="hero-pool-card">
+          <div class="pool-label">Пул специалистов</div>
+          <div class="pool-avatars">
+            <span class="avatar peach">ДК</span>
+            <span class="avatar mint">ИМ</span>
+            <span class="avatar peach">АС</span>
+            <span class="avatar mint">ТВ</span>
+            <span class="avatar more">+12</span>
+          </div>
+          <div class="pool-skills">
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Go</span>
+            <span class="skill-pill">Python</span>
+          </div>
+          <div class="pool-skills">
+            <span class="skill-pill">QA</span>
+          </div>
+          <div class="pool-ready">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.2l2.1 2.1L15.3 10"></path><circle cx="12" cy="12" r="9"></circle></svg>
+            Готовы подключиться за 5 дней
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= УСЛУГИ ================= -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Что мы делаем</p>
+        <h2>Две компетенции, которые закрывают весь цикл</h2>
+        <p>От поиска и подготовки людей до готового продукта — без передачи задачи нескольким разным подрядчикам.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="8" r="3.2"></circle>
+              <path d="M3.5 20c0-3.3 2.5-5.6 5.5-5.6s5.5 2.3 5.5 5.6"></path>
+              <path d="M16 4.2c1.6.4 2.8 1.9 2.8 3.7 0 1.7-1.1 3.2-2.6 3.7"></path>
+              <path d="M15 14.5c2.7.3 4.7 2.5 4.7 5.5"></path>
+            </svg>
+          </div>
+          <h3>Подбор и аутстаффинг специалистов</h3>
+          <p>Находим и предоставляем разработчиков, тестировщиков, аналитиков и дизайнеров в вашу команду — от одного человека до целого отдела.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 4 3 8.5 12 13l9-4.5L12 4Z"></path>
+              <path d="M6.5 10.7V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-5.3"></path>
+              <path d="M20 9v6"></path>
+            </svg>
+          </div>
+          <h3>Обучение и подготовка кадров</h3>
+          <p>Готовим специалистов на собственной учебной программе: техническая база, работа на реальных проектах, адаптация под ваш стек.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 9 4 12l4 3"></path>
+              <path d="M16 9l4 3-4 3"></path>
+            </svg>
+          </div>
+          <h3>Разработка веб- и мобильных продуктов</h3>
+          <p>Проектируем и создаём продукты любой сложности — от MVP до высоконагруженных систем под ключ.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 7.5 12 4l8 3.5"></path>
+              <path d="M4 12l8 3.5 8-3.5"></path>
+              <path d="M4 16.5 12 20l8-3.5"></path>
+            </svg>
+          </div>
+          <h3>Интеграции и backend-разработка</h3>
+          <p>API, интеграции с внешними сервисами, архитектура серверной части и настройка облачной инфраструктуры.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.5l7.5 3.2v5c0 4.6-3.1 8.1-7.5 9.8-4.4-1.7-7.5-5.2-7.5-9.8v-5L12 3.5Z"></path>
+              <path d="M9 12.2l2.1 2.1L15.3 10"></path>
+            </svg>
+          </div>
+          <h3>Поддержка и развитие продукта</h3>
+          <p>Сопровождаем продукт после релиза: багфиксы, новые фичи, мониторинг и масштабирование под нагрузку.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v2"></path>
+              <path d="M9 18.5v1a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-1"></path>
+              <path d="M9 18.5c0-1.6-.7-2.5-1.8-3.6a6.5 6.5 0 1 1 9.6 0c-1.1 1.1-1.8 2-1.8 3.6H9Z"></path>
+            </svg>
+          </div>
+          <h3>Техническая экспертиза и консалтинг</h3>
+          <p>Аудит кода и архитектуры, помощь в выборе стека, оценка сроков и бюджета проекта до старта.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= КАК МЫ РАБОТАЕМ ================= -->
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Как мы работаем</p>
+        <h2>Прозрачный процесс от заявки до результата</h2>
+        <p>Пять понятных этапов — без «чёрных ящиков» и неожиданностей на середине проекта.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-circle">01</div>
+          <h3>Заявка и бриф</h3>
+          <p>Обсуждаем задачу, сроки и бюджет, уточняем требования к команде или продукту.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">02</div>
+          <h3>Подбор решения</h3>
+          <p>Предлагаем готовых специалистов из пула или формируем план разработки.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">03</div>
+          <h3>Старт работы</h3>
+          <p>Знакомим с командой, согласовываем процессы коммуникации и отчётности.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">04</div>
+          <h3>Разработка</h3>
+          <p>Ведём проект по спринтам, регулярно отчитываемся о прогрессе.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">05</div>
+          <h3>Поддержка и рост</h3>
+          <p>Сопровождаем результат и масштабируем команду по мере роста задач.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= КЕЙСЫ ================= -->
+  <section id="cases">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Кейсы</p>
+        <h2>Реализованные проекты</h2>
+        <p>Несколько примеров того, как мы решали похожие задачи для клиентов.</p>
+      </div>
+
+      <div class="cases-grid">
+        <article class="case-card">
+          <div class="case-top peach">FIN</div>
+          <div class="case-body">
+            <p class="case-meta">Fintech · Команда из 5 человек</p>
+            <h3>Платформа для управления инвестициями</h3>
+            <p>Собрали кросс-функциональную команду и запустили MVP, взяли продукт на сопровождение после релиза.</p>
+            <div class="case-metrics">
+              <div>
+                <span class="m-value">10 нед.</span>
+                <span class="m-label">до MVP</span>
+              </div>
+              <div>
+                <span class="m-value">5</span>
+                <span class="m-label">специалистов</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-top mint">LOG</div>
+          <div class="case-body">
+            <p class="case-meta">Логистика · Аутстаффинг</p>
+            <h3>Платформа маршрутизации доставок</h3>
+            <p>Усилили внутреннюю команду клиента тремя backend-разработчиками и DevOps-инженером.</p>
+            <div class="case-metrics">
+              <div>
+                <span class="m-value">4</span>
+                <span class="m-label">специалиста</span>
+              </div>
+              <div>
+                <span class="m-value">14 мес.</span>
+                <span class="m-label">сотрудничество</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-top peach">MKT</div>
+          <div class="case-body">
+            <p class="case-meta">E-commerce · Разработка под ключ</p>
+            <h3>Маркетплейс для локальных производителей</h3>
+            <p>Спроектировали и разработали продукт с нуля: от прототипа до релиза в проде.</p>
+            <div class="case-metrics">
+              <div>
+                <span class="m-value">6 мес.</span>
+                <span class="m-label">до релиза</span>
+              </div>
+              <div>
+                <span class="m-value">7</span>
+                <span class="m-label">специалистов</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ИСТОРИИ ТРУДОУСТРОЙСТВА ================= -->
+  <section class="stories">
+    <div class="container">
+      <div class="section-head split">
+        <div class="head-text">
+          <p class="eyebrow">Истории трудоустройства</p>
+          <h2>Люди, которые прошли подготовку и вышли на проекты</h2>
+        </div>
+        <p class="head-aside">Часть специалистов в наших командах — выпускники собственной учебной программы TAVRIDA.IT.</p>
+      </div>
+
+      <div class="stories-grid">
+        <div class="story-card">
+          <span class="avatar peach">ДК</span>
+          <div class="story-name">Дарья К.</div>
+          <div class="story-path">Junior → Middle Frontend</div>
+          <p class="story-quote">«Прошла обучение и через два месяца вышла на первый проект клиента».</p>
+        </div>
+        <div class="story-card">
+          <span class="avatar mint">ИМ</span>
+          <div class="story-name">Игорь М.</div>
+          <div class="story-path">Стажёр → QA-инженер</div>
+          <p class="story-quote">«Начинал без опыта — сейчас веду тестирование целого модуля продукта».</p>
+        </div>
+        <div class="story-card">
+          <span class="avatar peach">АС</span>
+          <div class="story-name">Алина С.</div>
+          <div class="story-path">Курс → Junior Backend (Python)</div>
+          <p class="story-quote">«Через три месяца обучения устроилась на первый коммерческий проект».</p>
+        </div>
+        <div class="story-card">
+          <span class="avatar mint">ТВ</span>
+          <div class="story-name">Тимур В.</div>
+          <div class="story-path">Поддержка → DevOps-инженер</div>
+          <p class="story-quote">«Вырос внутри компании и перешёл в более техническую роль».</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ОТЗЫВЫ ================= -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Отзывы</p>
+        <h2>Что говорят клиенты</h2>
+        <p>Раздел наполняется — соберём отзывы клиентов по итогам первых проектов.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+          </div>
+          <p class="testimonial-quote">Отзыв клиента появится здесь после завершения проекта.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar"></div>
+            <div class="testimonial-who">
+              <strong>Имя, должность</strong>
+              <span>Компания</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+          </div>
+          <p class="testimonial-quote">Отзыв клиента появится здесь после завершения проекта.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar"></div>
+            <div class="testimonial-who">
+              <strong>Имя, должность</strong>
+              <span>Компания</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"></path></svg>
+          </div>
+          <p class="testimonial-quote">Отзыв клиента появится здесь после завершения проекта.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar"></div>
+            <div class="testimonial-who">
+              <strong>Имя, должность</strong>
+              <span>Компания</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Вопросы и ответы</p>
+        <h2>Частые вопросы</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Как быстро вы можете предоставить специалиста?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </div>
+          <p>В среднем — от 3 до 10 рабочих дней, в зависимости от стека и уровня специалиста.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Работаете ли вы с клиентами за пределами Крыма?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </div>
+          <p>Да, работаем с заказчиками из России и стран СНГ — учитываем особенности документооборота и оплаты.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Как оформляются специалисты — в штат или по договору?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </div>
+          <p>Возможны оба варианта: аутстаффинг по договору с нашей компанией или подбор для найма в штат клиента.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Что если специалист не подойдёт?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </div>
+          <p>Первые две недели — пробный период, в течение которого мы бесплатно заменим специалиста.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Какие технологии вы закрываете?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </div>
+          <p>Frontend, backend, mobile, QA, DevOps, аналитика — под задачу собираем нужный стек.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Сколько стоят ваши услуги?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </div>
+          <p>Стоимость зависит от роли, грейда и формата сотрудничества — рассчитаем точную смету после брифа.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ФОРМА ЗАЯВКИ ================= -->
+  <section id="request-form" class="contact-form-section">
+    <div class="container">
+      <div class="form-wrapper">
+
+        <div class="form-info">
+          <p class="eyebrow">Оставить заявку</p>
+          <h2>Рассчитаем стоимость под вашу задачу</h2>
+          <p>Опишите задачу — свяжемся в течение рабочего дня и предложим формат сотрудничества.</p>
+
+          <ul class="form-info-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.2l2.1 2.1L15.3 10"></path><circle cx="12" cy="12" r="9"></circle></svg>
+              Бесплатная консультация
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.2l2.1 2.1L15.3 10"></path><circle cx="12" cy="12" r="9"></circle></svg>
+              Ответ в течение рабочего дня
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.2l2.1 2.1L15.3 10"></path><circle cx="12" cy="12" r="9"></circle></svg>
+              Без обязательств
+            </li>
+          </ul>
+        </div>
+
+        <form class="request-form" data-request-form novalidate>
+          <div class="form-success" data-form-success>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.2l2.1 2.1L15.3 10"></path><circle cx="12" cy="12" r="9"></circle></svg>
+            <span>Заявка отправлена. Мы свяжемся с вами в ближайшее время.</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="first-name">Имя</label>
+              <input type="text" id="first-name" name="first-name" placeholder="Александр" autocomplete="given-name" required>
+            </div>
+            <div class="form-field">
+              <label for="last-name">Фамилия</label>
+              <input type="text" id="last-name" name="last-name" placeholder="Иванов" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 978 000-00-00" autocomplete="tel" required>
+          </div>
+
+          <div class="form-field">
+            <label for="comment">Комментарий</label>
+            <textarea id="comment" name="comment" placeholder="Расскажите о задаче: стек, сроки, состав команды"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= ФУТЕР ================= -->
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="index.html" class="logo">TAVRIDA<span>.IT</span></a>
+        <p>Готовим и предоставляем IT-специалистов, разрабатываем продукты под ключ. Крым — работаем по всей России и СНГ.</p>
+        <div class="footer-social">
+          <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4.5 3.5 11.3c-.9.35-.9 1.63.02 1.96l4.2 1.5 1.6 5.1c.3.95 1.55 1.15 2.15.35l2.3-3 4.4 3.25c.85.63 2.07.17 2.3-.86l3-13.7c.25-1.14-.9-2.1-1.97-1.7Z"></path><path d="M8.7 14.7 17 8"></path></svg>
+          </a>
+          <a href="https://vk.com/" target="_blank" rel="noopener" aria-label="VK">VK</a>
+          <a href="mailto:hello@tavrida.it" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#process">Как мы работаем</a></li>
+          <li><a href="#cases">Кейсы</a></li>
+          <li><a href="#testimonials">Отзывы</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul class="footer-contacts">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
+            <a href="mailto:hello@tavrida.it">hello@tavrida.it</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5h4l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v4c-8 0-15-7-15-15Z"></path></svg>
+            <a href="tel:+79780000000">+7 978 000-00-00</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4.5 3.5 11.3c-.9.35-.9 1.63.02 1.96l4.2 1.5 1.6 5.1c.3.95 1.55 1.15 2.15.35l2.3-3 4.4 3.25c.85.63 2.07.17 2.3-.86l3-13.7c.25-1.14-.9-2.1-1.97-1.7Z"></path></svg>
+            <a href="https://t.me/" target="_blank" rel="noopener">@tavrida_it</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.4"></circle></svg>
+            <span>г. Симферополь, Крым</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-cta">
+        <h4>Обсудим ваш проект?</h4>
+        <p>Оставьте заявку — рассчитаем стоимость под вашу задачу.</p>
+        <a href="#request-form" class="btn btn-primary">Оставить заявку</a>
+        <a href="https://t.me/" target="_blank" rel="noopener" class="footer-cta-link">или написать в Telegram</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="footer-year">2026</span> TAVRIDA.IT. Все права защищены.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Публичная оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
