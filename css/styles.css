@@ -744,6 +744,8 @@ section.tight { padding-block: 72px; }
 }
 
 /* ---------- FAQ ---------- */
+#faq { background: var(--color-bg-raised); }
+
 .faq-list {
   max-width: 800px;
   margin-inline: auto;
