@@ -501,9 +501,8 @@
           </ul>
         </div>
 
-        <form id="request-form" class="request-form" action="https://formspree.io/f/xvkgpgro" method="POST">
-          <input type="hidden" name="_subject" value="Новая заявка с сайта TAVRIDA.IT">
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <form id="request-form" class="request-form" method="POST">
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="form-row">
             <div class="form-field">
@@ -619,6 +618,8 @@
 </script>
 <script>
   (function () {
+    var API_URL = 'http://localhost:3000/api/request'; // TODO: заменить на адрес сервера после деплоя
+
     var form = document.getElementById('request-form');
     if (!form) return;
 
@@ -641,22 +642,30 @@
         submitBtn.textContent = 'Отправляем…';
       }
 
-      fetch(form.action, {
+      var formData = new FormData(form);
+      var payload = {
+        first_name: formData.get('first_name') || '',
+        last_name: formData.get('last_name') || '',
+        email: formData.get('email') || '',
+        phone: formData.get('phone') || '',
+        message: formData.get('message') || '',
+        website: formData.get('website') || ''
+      };
+
+      fetch(API_URL, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
       })
         .then(function (response) {
-          if (response.ok) {
-            form.reset();
-            showStatus('Спасибо! Заявка отправлена, мы свяжемся с вами в течение рабочего дня.', false);
-            return;
-          }
-
           return response.json().catch(function () { return null; }).then(function (data) {
-            var message = (data && data.errors && data.errors.length)
-              ? data.errors.map(function (e) { return e.message; }).join(', ')
-              : 'Не удалось отправить заявку.';
+            if (response.ok && data && data.ok) {
+              form.reset();
+              showStatus('Спасибо! Заявка отправлена, мы свяжемся с вами в течение рабочего дня.', false);
+              return;
+            }
+
+            var message = (data && data.error) ? data.error : 'Не удалось отправить заявку.';
             showStatus(message + ' Пожалуйста, напишите нам напрямую.', true);
           });
         })
