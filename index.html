@@ -507,27 +507,33 @@
           <div class="form-row">
             <div class="form-field">
               <label for="first-name">Имя</label>
-              <input type="text" id="first-name" name="first_name" placeholder="Александр" autocomplete="given-name" required>
+              <input type="text" id="first-name" name="first_name" placeholder="Александр" autocomplete="given-name" maxlength="50" required>
+              <p id="first-name-error" style="min-height:16px;margin:4px 0 0;font-size:12.5px;line-height:16px;color:#B3261E;"></p>
             </div>
             <div class="form-field">
               <label for="last-name">Фамилия</label>
-              <input type="text" id="last-name" name="last_name" placeholder="Иванов" autocomplete="family-name" required>
+              <input type="text" id="last-name" name="last_name" placeholder="Иванов" autocomplete="family-name" maxlength="50" required>
+              <p id="last-name-error" style="min-height:16px;margin:4px 0 0;font-size:12.5px;line-height:16px;color:#B3261E;"></p>
             </div>
           </div>
 
           <div class="form-field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" maxlength="100" required>
+            <p id="email-error" style="min-height:16px;margin:4px 0 0;font-size:12.5px;line-height:16px;color:#B3261E;"></p>
           </div>
 
           <div class="form-field">
             <label for="phone">Телефон</label>
             <input type="tel" id="phone" name="phone" placeholder="+7 978 000-00-00" autocomplete="tel">
+            <p style="margin:4px 0 0;font-size:12.5px;line-height:1.3;color:var(--color-text-muted);">Формат: +7 (978) 000-00-00</p>
+            <p id="phone-error" style="min-height:16px;margin:2px 0 0;font-size:12.5px;line-height:16px;color:#B3261E;"></p>
           </div>
 
           <div class="form-field">
             <label for="comment">Комментарий</label>
-            <textarea id="comment" name="message" placeholder="Расскажите о задаче: стек, сроки, состав команды"></textarea>
+            <textarea id="comment" name="message" placeholder="Расскажите о задаче: стек, сроки, состав команды" maxlength="500"></textarea>
+            <p id="comment-counter" style="margin:4px 0 0;font-size:12.5px;line-height:1.3;color:var(--color-text-muted);text-align:right;">0 / 500</p>
           </div>
 
           <button type="submit" id="request-submit" class="btn btn-primary btn-block">Отправить заявку</button>
@@ -615,6 +621,185 @@
 <script src="js/main.js"></script>
 <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imask@7/dist/imask.min.js"></script>
+<script>
+  // Валидация полей формы заявки (#request-form). Регистрируется раньше
+  // скрипта отправки ниже, чтобы при невалидной форме успеть вызвать
+  // stopImmediatePropagation() и не дать тому скрипту уйти в fetch.
+  (function () {
+    var form = document.getElementById('request-form');
+    if (!form) return;
+
+    var firstNameInput = document.getElementById('first-name');
+    var lastNameInput = document.getElementById('last-name');
+    var emailInput = document.getElementById('email');
+    var phoneInput = document.getElementById('phone');
+    var commentInput = document.getElementById('comment');
+
+    var firstNameError = document.getElementById('first-name-error');
+    var lastNameError = document.getElementById('last-name-error');
+    var emailError = document.getElementById('email-error');
+    var phoneError = document.getElementById('phone-error');
+    var commentCounter = document.getElementById('comment-counter');
+
+    var submitBtn = document.getElementById('request-submit');
+
+    var NAME_CHAR_RE = /^[A-Za-zА-Яа-яЁё\-\s]$/;
+    var NAME_STRIP_RE = /[^A-Za-zА-Яа-яЁё\-\s]/g;
+
+    // ---------- Имя / Фамилия ----------
+    function attachNameField(input) {
+      // Основная защита: не даём невалидному символу попасть в поле.
+      input.addEventListener('beforeinput', function (e) {
+        if (e.data == null) return; // удаление, автозаполнение и т.п. не трогаем
+        for (var i = 0; i < e.data.length; i++) {
+          if (!NAME_CHAR_RE.test(e.data[i])) {
+            e.preventDefault();
+            return;
+          }
+        }
+      });
+
+      // Подстраховка для браузеров без beforeinput (на случай вставки).
+      input.addEventListener('input', function () {
+        var cleaned = input.value.replace(NAME_STRIP_RE, '');
+        if (cleaned !== input.value) input.value = cleaned;
+      });
+    }
+
+    attachNameField(firstNameInput);
+    attachNameField(lastNameInput);
+
+    function isNameValid(input) {
+      var len = input.value.trim().length;
+      return len >= 2 && len <= 50;
+    }
+
+    function validateFirstName() {
+      if (!isNameValid(firstNameInput)) {
+        firstNameError.textContent = 'Введите имя (минимум 2 символа)';
+        return false;
+      }
+      firstNameError.textContent = '';
+      return true;
+    }
+
+    function validateLastName() {
+      if (!isNameValid(lastNameInput)) {
+        lastNameError.textContent = 'Введите фамилию (минимум 2 символа)';
+        return false;
+      }
+      lastNameError.textContent = '';
+      return true;
+    }
+
+    // ---------- Email ----------
+    function validateEmail() {
+      if (!emailInput.checkValidity()) {
+        emailError.textContent = 'Введите корректный email';
+        return false;
+      }
+      emailError.textContent = '';
+      return true;
+    }
+
+    // ---------- Телефон (IMask) ----------
+    var phoneMask = null;
+    if (window.IMask && phoneInput) {
+      phoneMask = window.IMask(phoneInput, { mask: '+7 (000) 000-00-00', lazy: false });
+
+      // Вставка вида 89785551234 / 79785551234 (11 цифр) — сразу в формат маски.
+      phoneInput.addEventListener('paste', function (e) {
+        var clipboard = e.clipboardData || window.clipboardData;
+        if (!clipboard) return;
+        var text = clipboard.getData('text') || '';
+        var digits = text.replace(/\D/g, '');
+        if (/^[78]\d{10}$/.test(digits)) {
+          e.preventDefault();
+          phoneMask.unmaskedValue = digits.slice(1);
+        }
+      });
+    }
+
+    function isPhoneValid() {
+      if (!phoneMask) return true; // IMask не загрузился — не блокируем форму из-за CDN
+      return phoneMask.unmaskedValue.length >= 10;
+    }
+
+    function validatePhone() {
+      if (!isPhoneValid()) {
+        phoneError.textContent = 'Введите номер полностью';
+        return false;
+      }
+      phoneError.textContent = '';
+      return true;
+    }
+
+    // ---------- Комментарий: счётчик символов ----------
+    function updateCommentCounter() {
+      if (!commentCounter) return;
+      var len = commentInput.value.length;
+      commentCounter.textContent = len + ' / 500';
+      if (len >= 500) {
+        commentCounter.style.color = '#B3261E';
+      } else if (len >= 450) {
+        commentCounter.style.color = 'var(--color-accent)';
+      } else {
+        commentCounter.style.color = 'var(--color-text-muted)';
+      }
+    }
+
+    if (commentInput) {
+      commentInput.addEventListener('input', updateCommentCounter);
+      updateCommentCounter();
+    }
+
+    // ---------- Кнопка отправки ----------
+    function updateSubmitState() {
+      if (!submitBtn) return;
+      var valid = isNameValid(firstNameInput) && isNameValid(lastNameInput) && emailInput.checkValidity() && isPhoneValid();
+      submitBtn.disabled = !valid;
+      submitBtn.style.opacity = valid ? '' : '0.6';
+      submitBtn.style.cursor = valid ? '' : 'not-allowed';
+    }
+
+    // Живое обновление доступности кнопки + снятие ошибки, если её уже показали.
+    firstNameInput.addEventListener('input', function () {
+      updateSubmitState();
+      if (firstNameError.textContent) validateFirstName();
+    });
+    lastNameInput.addEventListener('input', function () {
+      updateSubmitState();
+      if (lastNameError.textContent) validateLastName();
+    });
+    emailInput.addEventListener('input', function () {
+      updateSubmitState();
+      if (emailError.textContent) validateEmail();
+    });
+    phoneInput.addEventListener('input', function () {
+      updateSubmitState();
+      if (phoneError.textContent) validatePhone();
+    });
+
+    firstNameInput.addEventListener('blur', validateFirstName);
+    lastNameInput.addEventListener('blur', validateLastName);
+    emailInput.addEventListener('blur', validateEmail);
+    phoneInput.addEventListener('blur', validatePhone);
+
+    // Финальная проверка по submit — на случай, если поле осталось
+    // нетронутым (blur не сработал), но кнопка почему-то была активна.
+    form.addEventListener('submit', function (event) {
+      var valid = validateFirstName() && validateLastName() && validateEmail() && validatePhone();
+      updateSubmitState();
+      if (!valid) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    });
+
+    updateSubmitState();
+  })();
 </script>
 <script>
   (function () {
