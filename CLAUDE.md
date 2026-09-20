@@ -13,6 +13,8 @@ The static site itself has no build/lint/test tooling (no root `package.json`).
 - **Preview locally**: open `index.html` directly in a browser, or `npx serve .` from the repo root.
 - **Verifying visual/behavioral changes on the frontend**: there's no permanent test suite. The established pattern for this repo is to temporarily install Playwright (`npm install --no-save playwright`, `npx playwright install chromium`), drive `file:///.../index.html` with a throwaway script to screenshot at desktop (1440px) and mobile (375px) widths and check `document.documentElement.scrollWidth` for horizontal overflow, then delete `node_modules`/`package.json`/`package-lock.json`/screenshots before committing. Keep this out of git — the repo root should stay dependency-free.
 - **Backend** (`server/`): `cd server && npm install && cp .env.example .env`, then `npm run dev` (nodemon) or `npm start`. See `server/README.md` for the full local-run and VPS-deploy checklist. `server/` has its own `.gitignore`-d `node_modules/`, `.env`, and `data/` (the SQLite file) — `package-lock.json` IS committed.
+- **Running the full stack locally**: two processes — backend `cd server && npm run dev` (port 3000) and frontend `npx serve . -l 5500` from the repo root (pick a port other than 3000, `serve` defaults to it). Open the site via that `http://localhost:5500`, **not** `file://`: the backend's CORS allows exactly one origin (`CORS_ORIGIN` in `server/.env`), so for local testing set it to the exact address in the browser bar (`localhost` and `127.0.0.1` count as different origins), and set it back to `https://legomario11113-star.github.io` before deploying. `.env` is read only at startup — restart after editing it. Never re-run `cp .env.example .env` on a configured setup, it overwrites the real values. With `SMTP_*` empty, submissions are still saved and the API returns `{ ok: true, warning }`; there is no email/delivery log in the DB (only the `submissions` table). SMTP for the owner's mailbox is `smtp.mail.ru:465` with a Mail.ru "app password" (real credentials live only in the git-ignored `.env`).
+- **Stopping stray processes** on Windows PowerShell: `Stop-Process -Id (Get-NetTCPConnection -LocalPort 3000 -State Listen).OwningProcess -Force` (same for 5500); an `ObjectNotFound` error just means nothing is listening.
 
 ## Architecture
 
@@ -33,6 +35,18 @@ The inline script's `API_URL` constant is currently `http://localhost:3000/api/r
 `server/routes/request.js` has its own honeypot field (`website`, matching the hidden input in the form) — unrelated to Formspree's old `_gotcha`/`_subject` fields, which were removed from the form entirely along with the `action` attribute.
 
 `js/main.js`'s `initRequestForm()` function is dead code — it looks for a `[data-request-form]` attribute that doesn't exist on the form (removed back when the form was first wired to Formspree, and still absent now). It's harmless (returns early, no-op) but was intentionally left alone rather than removed, since form-related tasks have repeatedly been scoped to `index.html`/`server/` only. Don't be confused into thinking form submission is handled there; the real logic is the inline script in `index.html`, which now talks to `server/`.
+
+### Form validation (client-side)
+
+Field validation lives in its own inline `<script>` in `index.html`, placed **before** the submit/fetch script and after the IMask CDN tag (`https://cdn.jsdelivr.net/npm/imask@7/dist/imask.min.js`). Order matters: both scripts add a `submit` listener to `#request-form`, and listeners run in registration order, so the validation one must register first to call `stopImmediatePropagation()` and stop the fetch script from sending an invalid form. Neither script wraps its init in `DOMContentLoaded` for the same reason — don't add that, it would flip the order.
+
+What it enforces: name/last name — letters (Cyrillic/Latin), hyphen, space only, blocked at keystroke via `beforeinput` (with an `input` fallback), 2–50 chars checked on blur; email — `maxlength=100` and a custom message on blur; phone — IMask `+7 (000) 000-00-00` with `lazy: false`, so the field is never natively empty and the `required` attribute cannot work there — phone validity is `phoneMask.unmaskedValue.length >= 10`, and phone deliberately has no `required` attribute; pasting an 11-digit `7…`/`8…` number is normalized in a `paste` handler; comment — `maxlength=500` with a live `N / 500` counter. The submit button is `disabled` (set by JS at runtime, never in the HTML, so the form still works natively if JS fails) until name, last name, email and phone are all valid.
+
+Error/hint/counter elements are styled with inline `style` attributes (referencing `--color-accent`/`--color-text-muted`), not `css/styles.css` — that was a constraint of the task that added them, not a project rule; moving them into the stylesheet is fine. Each error slot has `min-height` and `line-height` set to the same px value so showing/hiding an error causes zero layout shift (measured 0px) — keep those two equal if you restyle.
+
+### Markup ↔ script contract (read before any redesign)
+
+The scripts find elements by id/attribute, so a UI overhaul must preserve these or the form/nav silently break: `#request-form`, `#request-submit`, `#request-status`; inputs `#first-name` (`name=first_name`), `#last-name` (`last_name`), `#email`, `#phone`, `#comment` (`name=message`), and the honeypot `name="website"`; error/counter slots `#first-name-error`, `#last-name-error`, `#email-error`, `#phone-error`, `#comment-counter`; `#footer-year`; and for `js/main.js`: `[data-site-header]`, `[data-nav-menu]`, `[data-nav-toggle]`. The `#request` section id is the target of the header/hero/footer CTAs.
 
 ### FAQ section
 
@@ -81,6 +95,24 @@ Node-бэкенд.
   запуска и деплоя на VPS — в `server/README.md`. У `server/` свой
   `.gitignore`-нутый `node_modules/`, `.env` и `data/` (файл SQLite) —
   `package-lock.json` при этом закоммичен.
+- **Полный локальный запуск**: два процесса — backend `cd server && npm run dev`
+  (порт 3000) и frontend `npx serve . -l 5500` из корня репозитория (порт
+  выбирать не 3000 — `serve` по умолчанию занимает его). Сайт открывать по
+  `http://localhost:5500`, **не** через `file://`: CORS backend'а пускает ровно
+  один origin (`CORS_ORIGIN` в `server/.env`), поэтому для локального теста его
+  нужно выставить точно как в адресной строке браузера (`localhost` и
+  `127.0.0.1` — разные origin), а перед деплоем вернуть
+  `https://legomario11113-star.github.io`. `.env` читается только при старте —
+  после правки перезапускать. Никогда не повторять `cp .env.example .env` на
+  уже настроенной установке — перезапишет реальные значения. При пустых `SMTP_*`
+  заявки всё равно сохраняются, а API отвечает `{ ok: true, warning }`; лога
+  доставки писем в БД нет (есть только таблица `submissions`). SMTP для почты
+  владельца — `smtp.mail.ru:465` с «паролем для внешних приложений» Mail.ru
+  (реальные данные лежат только в `.env`, который в git не попадает).
+- **Остановка «застрявших» процессов** в Windows PowerShell:
+  `Stop-Process -Id (Get-NetTCPConnection -LocalPort 3000 -State Listen).OwningProcess -Force`
+  (аналогично для 5500); ошибка `ObjectNotFound` просто значит, что на порту
+  никто не слушает.
 
 ## Архитектура
 
@@ -138,6 +170,48 @@ Formspree `_gotcha`/`_subject`, которые вместе с атрибуто�
 не удалили, поскольку задачи по форме раз за разом ограничивались только
 `index.html`/`server/`. Не путать: обработка отправки формы происходит не там,
 а в инлайновом скрипте в `index.html`, который теперь обращается к `server/`.
+
+### Валидация формы (на клиенте)
+
+Валидация полей — отдельный инлайновый `<script>` в `index.html`, стоящий
+**перед** скриптом отправки (fetch) и после тега CDN IMask
+(`https://cdn.jsdelivr.net/npm/imask@7/dist/imask.min.js`). Порядок важен: оба
+скрипта вешают `submit`-обработчик на `#request-form`, а обработчики
+выполняются в порядке регистрации — валидация должна зарегистрироваться первой,
+чтобы вызвать `stopImmediatePropagation()` и не дать скрипту отправки послать
+невалидную форму. Поэтому ни один из скриптов не оборачивает инициализацию в
+`DOMContentLoaded` — не добавлять, это перевернёт порядок.
+
+Что проверяется: имя/фамилия — только буквы (кириллица/латиница), дефис,
+пробел; лишние символы блокируются при вводе через `beforeinput` (с запасным
+вариантом на `input`), длина 2–50 проверяется на blur; email — `maxlength=100`
+и своё сообщение на blur; телефон — IMask `+7 (000) 000-00-00` с
+`lazy: false`, поэтому поле никогда не бывает нативно пустым и атрибут
+`required` там работать не может — валидность телефона это
+`phoneMask.unmaskedValue.length >= 10`, а атрибута `required` у телефона
+намеренно нет; вставка 11-значного номера `7…`/`8…` нормализуется в обработчике
+`paste`; комментарий — `maxlength=500` и живой счётчик `N / 500`. Кнопка
+отправки `disabled` (выставляется JS в рантайме, а не в HTML — чтобы форма
+работала нативно, если JS не загрузился), пока имя, фамилия, email и телефон не
+станут валидными.
+
+Элементы ошибок/подсказки/счётчика оформлены инлайновыми `style` (ссылаются на
+`--color-accent`/`--color-text-muted`), а не через `css/styles.css` — это было
+ограничением задачи, которая их добавляла, а не правилом проекта; перенести их
+в таблицу стилей можно. У каждого слота ошибки `min-height` и `line-height`
+равны одному и тому же значению в px, поэтому показ/скрытие ошибки не даёт
+сдвига раскладки (измерено: 0px) — при рестайлинге держать их равными.
+
+### Контракт «разметка ↔ скрипты» (прочитать перед любым редизайном)
+
+Скрипты ищут элементы по id/атрибутам, поэтому при переделке UI их нужно
+сохранить, иначе форма/навигация молча сломаются: `#request-form`,
+`#request-submit`, `#request-status`; поля `#first-name` (`name=first_name`),
+`#last-name` (`last_name`), `#email`, `#phone`, `#comment` (`name=message`) и
+honeypot `name="website"`; слоты ошибок/счётчика `#first-name-error`,
+`#last-name-error`, `#email-error`, `#phone-error`, `#comment-counter`;
+`#footer-year`; а для `js/main.js` — `[data-site-header]`, `[data-nav-menu]`,
+`[data-nav-toggle]`. Id секции `#request` — цель CTA в шапке, hero и футере.
 
 ### Секция FAQ
 
