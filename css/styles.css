@@ -820,7 +820,7 @@ section.tight { padding-block: 72px; }
 .stars {
   display: flex;
   gap: 4px;
-  color: var(--color-text-muted);
+  color: #E8A73E;
 }
 
 .stars svg { width: 17px; height: 17px; }
