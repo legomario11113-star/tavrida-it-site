@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Balance — кейс TAVRIDA.IT</title>
-<meta name="description" content="AI Balance — ИИ-коуч по балансу в жизни: контроль питания, физической активности и прогресса. Кейс собственной разработки TAVRIDA.IT.">
+<title>Appetit — кейс TAVRIDA.IT</title>
+<meta name="description" content="Appetit — сервис доставки правильного и спортивного питания с собственной админ-панелью. Кейс заказной разработки TAVRIDA.IT.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,21 +32,18 @@
 <main>
 
   <!--
-    ================= КЕЙС: AI BALANCE =================
+    ================= КЕЙС: APPETIT =================
     Всё содержимое между шапкой и подвалом — один самостоятельный блок
-    (.case-detail): эйброу/заголовок/лид, развёрнутое описание, галерея
-    скриншотов и видео. Не завязан на то, что вокруг целая страница —
-    при необходимости этот же блок можно перенести в модальное окно на
-    главной, просто заменив обёртку <main>/<article> на разметку модалки.
+    (.case-detail), по той же структуре, что и cases/ai-balance.html.
   -->
   <article class="case-detail">
     <div class="container">
 
       <!-- ---- Хиро ---- -->
       <div class="case-hero">
-        <p class="eyebrow">Healthtech · Свой продукт</p>
-        <h1>AI Balance — ИИ-коуч по балансу в жизни</h1>
-        <p class="case-hero-lead">ИИ-продукт для контроля питания и физической активности: КБЖУ, спорт, водный баланс, приём БАДов, отслеживание прогресса и достижение цели — похудение, рекомпозиция или набор массы.</p>
+        <p class="eyebrow">Foodtech · Заказная разработка</p>
+        <h1>Appetit — доставка правильного и спортивного питания</h1>
+        <p class="case-hero-lead">Сервис доставки готовых рационов с собственной настраиваемой админ-панелью. Автоматизировали то, что раньше делалось вручную: чередование меню по циклам, выходные дни, расчёт КБЖУ, скидки и статусы заказов.</p>
       </div>
 
       <!-- ---- Развёрнутое описание ---- -->
@@ -54,38 +51,57 @@
         <div class="case-overview-grid">
           <div class="card case-overview-block">
             <h2>Задача</h2>
-            <p>Запустить MVP персонального ИИ-коуча по питанию и тренировкам, который не выдаёт шаблонные советы, а опирается на реальные данные пользователя — цель, вес, активность, привычки. Нужно было уложиться в сжатые сроки и сразу заложить архитектуру, готовую к росту базы пользователей.</p>
+            <p>Меню и заказы сервиса доставки питания вели вручную — каждый день нужно было обновлять блюда, вручную считать КБЖУ и следить за выходными в расписании. Требовалась платформа с собственной админкой, которая берёт эту рутину на себя.</p>
           </div>
           <div class="card case-overview-block">
             <h2>Решение</h2>
-            <p>Собрали продукт вокруг трёх опор: подбор программы тренировок под цель, дневник питания с базой из 20 000+ продуктов и ИИ-коуч, который анализирует прогресс и даёт рекомендации в чате. Разработку вели итеративно — от кликабельного прототипа до релиза MVP с последующими доработками по фидбеку первых пользователей.</p>
+            <p>Собрали сайт с настраиваемой админ-панелью: меню переключается по циклам автоматически, выходные дни исключаются из расписания без ручных правок, КБЖУ считается по каждому блюду и набору, добавлены скидки и отслеживание статуса заказа от оформления до доставки.</p>
           </div>
           <div class="card case-overview-block">
             <h2>Стек</h2>
-            <p>Frontend — React, TypeScript, Tailwind CSS. Backend — Node.js (NestJS), PostgreSQL. Интеграция с LLM API для генерации персональных рекомендаций коуча. Инфраструктура развёрнута в облаке с CI/CD для быстрых релизов.</p>
+            <p>Frontend — Vue 3, TypeScript, Tailwind CSS. Backend — Python (Django), включая кастомные модели и админ-панель на Django Admin для управления меню, заказами, скидками и статистикой. Приём оплаты — через СБП по QR-коду. Хостинг на VPS с автоматическим деплоем.</p>
           </div>
           <div class="card case-overview-block">
             <h2>Роль команды</h2>
-            <p>TAVRIDA.IT вела проект полным циклом: аналитик проработал требования и пользовательские сценарии, UX/UI-дизайнер собрал интерфейс, два frontend- и два backend-разработчика реализовали продукт, QA-инженер тестировал перед каждым релизом. Команда сопровождает продукт и после запуска.</p>
+            <p>TAVRIDA.IT вела проект полным циклом: аналитик проработал логику меню — циклы, выходные, расчёт КБЖУ — и сценарии заказа, дизайнер собрал интерфейс сайта и админки, frontend- и backend-разработчики реализовали публичную часть и админ-панель, QA-инженер протестировал перед запуском. После релиза команда сопровождает сайт и дорабатывает функциональность.</p>
           </div>
         </div>
       </div>
 
-      <!-- ---- Галерея скриншотов ---- -->
+      <!-- ---- Галерея скриншотов сайта ---- -->
       <div class="case-gallery">
-        <p class="eyebrow">Скриншоты</p>
+        <p class="eyebrow">Скриншоты сайта</p>
         <div class="case-gallery-grid">
-          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/screenshot-1.jpg">
-            <img src="../assets/images/ai-balance/screenshot-1.jpg" alt="AI Balance — главный экран сайта с ИИ-коучем">
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/full/screenshot-1.jpg">
+            <img src="../assets/images/appetit/screenshot-1.jpg" alt="Appetit — главная страница сайта">
           </button>
-          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/full/screenshot-2.jpg">
-            <img src="../assets/images/ai-balance/screenshot-2.jpg" alt="AI Balance — выбор программы тренировок">
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/screenshot-2.jpg">
+            <img src="../assets/images/appetit/screenshot-2.jpg" alt="Appetit — выбор меню: правильное или спортивное питание">
           </button>
-          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/full/screenshot-3.jpg">
-            <img src="../assets/images/ai-balance/screenshot-3.jpg" alt="AI Balance — план тренировок на неделю">
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/screenshot-3.jpg">
+            <img src="../assets/images/appetit/screenshot-3.jpg" alt="Appetit — меню на день с подбором блюд">
           </button>
-          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/full/screenshot-4.jpg">
-            <img src="../assets/images/ai-balance/screenshot-4.jpg" alt="AI Balance — трекер активности и калорий">
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/screenshot-4.jpg">
+            <img src="../assets/images/appetit/screenshot-4.jpg" alt="Appetit — оформление заказа">
+          </button>
+        </div>
+      </div>
+
+      <!-- ---- Галерея скриншотов админ-панели ---- -->
+      <div class="case-gallery">
+        <p class="eyebrow">Скриншоты админ-панели</p>
+        <div class="case-gallery-grid">
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/full/screenshot-5.jpg">
+            <img src="../assets/images/appetit/screenshot-5.jpg" alt="Admin-панель Appetit — список разделов и последние действия">
+          </button>
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/full/screenshot-6.jpg">
+            <img src="../assets/images/appetit/screenshot-6.jpg" alt="Admin-панель Appetit — редактирование блюда с КБЖУ">
+          </button>
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/full/screenshot-7.jpg">
+            <img src="../assets/images/appetit/screenshot-7.jpg" alt="Admin-панель Appetit — статистика заказов за период">
+          </button>
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/appetit/full/screenshot-8.jpg">
+            <img src="../assets/images/appetit/screenshot-8.jpg" alt="Admin-панель Appetit — список дополнительных позиций">
           </button>
         </div>
       </div>
@@ -94,11 +110,11 @@
       <div class="case-video">
         <p class="eyebrow">Видео</p>
         <div class="case-video-frame">
-          <video controls poster="../assets/images/ai-balance/video-poster.jpg">
-            <source src="../assets/video/ai-balance-demo.mp4" type="video/mp4">
+          <video controls poster="../assets/images/appetit/video-poster.jpg">
+            <source src="../assets/video/appetit-demo.mp4" type="video/mp4">
           </video>
         </div>
-        <p class="case-video-caption">Демонстрация работы AI Balance</p>
+        <p class="case-video-caption">Демонстрация работы Appetit</p>
       </div>
 
     </div>
