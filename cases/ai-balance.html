@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Balance — кейс TAVRIDA.IT</title>
+<meta name="description" content="AI Balance — ИИ-коуч по балансу в жизни: контроль питания, физической активности и прогресса. Кейс собственной разработки TAVRIDA.IT.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="site-header" data-site-header>
+  <div class="container">
+    <a href="../index.html" class="logo">TAVRIDA<span>.IT</span></a>
+
+    <a href="../index.html#development" class="case-back-link">← Все кейсы</a>
+
+    <div class="header-actions">
+      <a href="https://t.me/Maledict24" target="_blank" rel="noopener" class="header-social" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4.5 3.5 11.3c-.9.35-.9 1.63.02 1.96l4.2 1.5 1.6 5.1c.3.95 1.55 1.15 2.15.35l2.3-3 4.4 3.25c.85.63 2.07.17 2.3-.86l3-13.7c.25-1.14-.9-2.1-1.97-1.7Z"></path><path d="M8.7 14.7 17 8"></path></svg>
+      </a>
+      <a href="../index.html#request" class="btn btn-primary">Оставить заявку</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!--
+    ================= КЕЙС: AI BALANCE =================
+    Всё содержимое между шапкой и подвалом — один самостоятельный блок
+    (.case-detail): эйброу/заголовок/лид, развёрнутое описание, галерея
+    скриншотов и видео. Не завязан на то, что вокруг целая страница —
+    при необходимости этот же блок можно перенести в модальное окно на
+    главной, просто заменив обёртку <main>/<article> на разметку модалки.
+  -->
+  <article class="case-detail">
+    <div class="container">
+
+      <!-- ---- Хиро ---- -->
+      <div class="case-hero">
+        <p class="eyebrow">Healthtech · Свой продукт</p>
+        <h1>AI Balance — ИИ-коуч по балансу в жизни</h1>
+        <p class="case-hero-lead">ИИ-продукт для контроля питания и физической активности: КБЖУ, спорт, водный баланс, приём БАДов, отслеживание прогресса и достижение цели — похудение, рекомпозиция или набор массы.</p>
+      </div>
+
+      <!-- ---- Развёрнутое описание ---- -->
+      <div class="case-overview">
+        <div class="case-overview-grid">
+          <div class="card case-overview-block">
+            <h2>Задача</h2>
+            <p>Запустить MVP персонального ИИ-коуча по питанию и тренировкам, который не выдаёт шаблонные советы, а опирается на реальные данные пользователя — цель, вес, активность, привычки. Нужно было уложиться в сжатые сроки и сразу заложить архитектуру, готовую к росту базы пользователей.</p>
+          </div>
+          <div class="card case-overview-block">
+            <h2>Решение</h2>
+            <p>Собрали продукт вокруг трёх опор: подбор программы тренировок под цель, дневник питания с базой из 20 000+ продуктов и ИИ-коуч, который анализирует прогресс и даёт рекомендации в чате. Разработку вели итеративно — от кликабельного прототипа до релиза MVP с последующими доработками по фидбеку первых пользователей.</p>
+          </div>
+          <div class="card case-overview-block">
+            <h2>Стек</h2>
+            <p>Frontend — React, TypeScript, Tailwind CSS. Backend — Node.js (NestJS), PostgreSQL. Интеграция с LLM API для генерации персональных рекомендаций коуча. Инфраструктура развёрнута в облаке с CI/CD для быстрых релизов.</p>
+          </div>
+          <div class="card case-overview-block">
+            <h2>Роль команды</h2>
+            <p>TAVRIDA.IT вела проект полным циклом: аналитик проработал требования и пользовательские сценарии, UX/UI-дизайнер собрал интерфейс, два frontend- и два backend-разработчика реализовали продукт, QA-инженер тестировал перед каждым релизом. Команда сопровождает продукт и после запуска.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- Галерея скриншотов ---- -->
+      <div class="case-gallery">
+        <p class="eyebrow">Скриншоты</p>
+        <div class="case-gallery-grid" data-lightbox-gallery>
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/screenshot-1.jpg">
+            <img src="../assets/images/ai-balance/screenshot-1.jpg" alt="AI Balance — главный экран сайта с ИИ-коучем">
+          </button>
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/full/screenshot-2.jpg">
+            <img src="../assets/images/ai-balance/screenshot-2.jpg" alt="AI Balance — выбор программы тренировок">
+          </button>
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/full/screenshot-3.jpg">
+            <img src="../assets/images/ai-balance/screenshot-3.jpg" alt="AI Balance — план тренировок на неделю">
+          </button>
+          <button type="button" class="case-shot" data-lightbox-trigger data-full="../assets/images/ai-balance/full/screenshot-4.jpg">
+            <img src="../assets/images/ai-balance/screenshot-4.jpg" alt="AI Balance — трекер активности и калорий">
+          </button>
+        </div>
+      </div>
+
+      <!-- ---- Видео ---- -->
+      <div class="case-video">
+        <p class="eyebrow">Видео</p>
+        <div class="case-video-frame">
+          <video controls poster="../assets/images/ai-balance/video-poster.jpg">
+            <source src="../assets/video/ai-balance-demo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="case-video-caption">Демонстрация работы AI Balance</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ---- Лайтбокс для галереи скриншотов ---- -->
+  <div class="lightbox" data-lightbox aria-hidden="true">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+    </button>
+    <img class="lightbox-img" data-lightbox-img src="" alt="">
+  </div>
+
+</main>
+
+<!-- ================= ФУТЕР ================= -->
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">TAVRIDA<span>.IT</span></a>
+        <p>Готовим и предоставляем IT-специалистов, разрабатываем продукты под ключ.</p>
+        <div class="footer-social">
+          <a href="https://t.me/Maledict24" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4.5 3.5 11.3c-.9.35-.9 1.63.02 1.96l4.2 1.5 1.6 5.1c.3.95 1.55 1.15 2.15.35l2.3-3 4.4 3.25c.85.63 2.07.17 2.3-.86l3-13.7c.25-1.14-.9-2.1-1.97-1.7Z"></path><path d="M8.7 14.7 17 8"></path></svg>
+          </a>
+          <a href="https://vk.com/" target="_blank" rel="noopener" aria-label="VK">VK</a>
+          <a href="mailto:hello@tavrida.it" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="../index.html#services">Услуги</a></li>
+          <li><a href="../index.html#process">Как мы работаем</a></li>
+          <li><a href="../index.html#team">Специалисты</a></li>
+          <li><a href="../index.html#development">Разработка</a></li>
+          <li><a href="../index.html#testimonials">Отзывы</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul class="footer-contacts">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
+            <a href="mailto:hello@tavrida.it">hello@tavrida.it</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5h4l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v4c-8 0-15-7-15-15Z"></path></svg>
+            <a href="tel:+79780000000">+7 978 000-00-00</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4.5 3.5 11.3c-.9.35-.9 1.63.02 1.96l4.2 1.5 1.6 5.1c.3.95 1.55 1.15 2.15.35l2.3-3 4.4 3.25c.85.63 2.07.17 2.3-.86l3-13.7c.25-1.14-.9-2.1-1.97-1.7Z"></path></svg>
+            <a href="https://t.me/Maledict24" target="_blank" rel="noopener">@Maledict24</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-cta">
+        <h4>Обсудим ваш проект?</h4>
+        <p>Оставьте заявку — рассчитаем стоимость под вашу задачу.</p>
+        <a href="../index.html#request" class="btn btn-primary">Оставить заявку</a>
+        <a href="https://t.me/Maledict24" target="_blank" rel="noopener" class="footer-cta-link">или написать в Telegram</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 TAVRIDA.IT. Все права защищены.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Публичная оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Лайтбокс для галереи скриншотов (.case-gallery-grid). Специфичен для
+  // страниц-кейсов cases/*.html — открывает скриншот на весь экран по
+  // клику, закрывается по Esc, клику по фону или по крестику.
+  (function () {
+    var gallery = document.querySelector('[data-lightbox-gallery]');
+    var lightbox = document.querySelector('[data-lightbox]');
+    if (!gallery || !lightbox) return;
+
+    var lightboxImg = lightbox.querySelector('[data-lightbox-img]');
+    var closeBtn = lightbox.querySelector('[data-lightbox-close]');
+
+    function openLightbox(trigger, img) {
+      // Если у плитки есть data-full (несжатый/некадрированный скрин) — в
+      // лайтбоксе показываем его, а не обрезанное превью из сетки.
+      lightboxImg.src = trigger.getAttribute('data-full') || img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    gallery.querySelectorAll('[data-lightbox-trigger]').forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        var img = trigger.querySelector('img');
+        if (img) openLightbox(trigger, img);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Клик по тёмному фону (не по самой картинке) — тоже закрывает.
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+    });
+  })();
+</script>
+</body>
+</html>
