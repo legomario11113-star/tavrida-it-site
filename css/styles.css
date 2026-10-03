@@ -1294,28 +1294,6 @@ section.tight { padding-block: 72px; }
 .lightbox-close:hover { color: var(--color-accent); }
 .lightbox-close svg { width: 18px; height: 18px; }
 
-.case-video { margin-top: 64px; }
-
-.case-video .eyebrow { margin-bottom: 20px; }
-
-.case-video-frame { max-width: 420px; margin-inline: auto; }
-
-.case-video-frame video {
-  width: 100%;
-  display: block;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-card);
-  background: #000;
-}
-
-.case-video-caption {
-  margin-top: 14px;
-  text-align: center;
-  font-size: 14px;
-  color: var(--color-text-muted);
-}
-
 /* ---------- Утилиты ---------- */
 .visually-hidden {
   position: absolute;
@@ -1393,7 +1371,6 @@ section.tight { padding-block: 72px; }
   .case-overview { margin-top: 48px; }
   .case-overview-grid { grid-template-columns: 1fr; }
   .case-gallery { margin-top: 48px; }
-  .case-video { margin-top: 48px; }
 
   .form-row { grid-template-columns: 1fr; }
   .request-form { padding: 26px; }
